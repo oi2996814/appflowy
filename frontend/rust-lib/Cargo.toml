@@ -2,32 +2,155 @@
 members = [
   "lib-dispatch",
   "lib-log",
-  "lib-sqlite",
-  "flowy-net",
-  "flowy-sdk",
+  "flowy-core",
   "dart-ffi",
   "flowy-user",
-  "flowy-test",
-  "flowy-database",
+  "flowy-user-pub",
+  "event-integration-test",
+  "flowy-sqlite",
   "flowy-folder",
-  "dart-notify",
+  "flowy-folder-pub",
+  "flowy-notification",
   "flowy-document",
+  "flowy-document-pub",
   "flowy-error",
-  "flowy-revision",
-  "flowy-grid",
-  "flowy-task",
+  "flowy-database2",
+  "flowy-database-pub",
+  "flowy-server",
+  "flowy-server-pub",
+  "flowy-storage",
+  "collab-integrate",
+  "flowy-date",
+  "flowy-search",
+  "lib-infra",
+  "build-tool/flowy-ast",
+  "build-tool/flowy-codegen",
+  "build-tool/flowy-derive",
+  "flowy-search-pub",
+  "flowy-ai",
+  "flowy-ai-pub",
+  "flowy-storage-pub",
 ]
+
+resolver = "2"
+
+[workspace.dependencies]
+lib-dispatch = { path = "lib-dispatch" }
+lib-log = { path = "lib-log" }
+lib-infra = { path = "lib-infra" }
+flowy-ast = { path = "build-tool/flowy-ast" }
+flowy-codegen = { path = "build-tool/flowy-codegen" }
+flowy-derive = { path = "build-tool/flowy-derive" }
+flowy-core = { path = "flowy-core" }
+dart-ffi = { path = "dart-ffi" }
+flowy-user = { path = "flowy-user" }
+flowy-user-pub = { path = "flowy-user-pub" }
+flowy-sqlite = { path = "flowy-sqlite" }
+flowy-folder = { path = "flowy-folder" }
+flowy-folder-pub = { path = "flowy-folder-pub" }
+flowy-notification = { path = "flowy-notification" }
+flowy-document = { path = "flowy-document" }
+flowy-document-pub = { path = "flowy-document-pub" }
+flowy-error = { path = "flowy-error" }
+flowy-database2 = { path = "flowy-database2" }
+flowy-database-pub = { path = "flowy-database-pub" }
+flowy-server = { path = "flowy-server" }
+flowy-server-pub = { path = "flowy-server-pub" }
+flowy-storage = { path = "flowy-storage" }
+flowy-storage-pub = { path = "flowy-storage-pub" }
+flowy-search = { path = "flowy-search" }
+flowy-search-pub = { path = "flowy-search-pub" }
+collab-integrate = { path = "collab-integrate" }
+flowy-date = { path = "flowy-date" }
+flowy-ai = { path = "flowy-ai" }
+flowy-ai-pub = { path = "flowy-ai-pub" }
+anyhow = "1.0"
+arc-swap = "1.7"
+tracing = "0.1.40"
+bytes = "1.5.0"
+serde_json = "1.0.108"
+serde = "1.0.194"
+protobuf = { version = "2.28.0" }
+diesel = { version = "2.1.0", features = [
+  "sqlite",
+  "chrono",
+  "r2d2",
+  "serde_json",
+] }
+uuid = { version = "1.5.0", features = ["serde", "v4", "v5"] }
+serde_repr = "0.1"
+futures = "0.3.29"
+tokio = "1.38.0"
+tokio-stream = "0.1.14"
+async-trait = "0.1.81"
+chrono = { version = "0.4.31", default-features = false, features = ["clock"] }
+collab = { version = "0.2" }
+collab-entity = { version = "0.2" }
+collab-folder = { version = "0.2" }
+collab-document = { version = "0.2" }
+collab-database = { version = "0.2" }
+collab-plugins = { version = "0.2" }
+collab-user = { version = "0.2" }
+collab-importer = { version = "0.1" }
+yrs = "0.21.0"
+validator = { version = "0.18", features = ["derive"] }
+tokio-util = "0.7.11"
+zip = "2.2.0"
+dashmap = "6.0.1"
+
+# Please using the following command to update the revision id
+# Current directory: frontend
+# Run the script.add_workspace_members:
+# scripts/tool/update_client_api_rev.sh  new_rev_id
+# ⚠️⚠️⚠️️
+client-api = { git = "https://github.com/AppFlowy-IO/AppFlowy-Cloud", rev = "80eea34e73cfffe71e484cbaddb2d547076eaf09" }
+client-api-entity = { git = "https://github.com/AppFlowy-IO/AppFlowy-Cloud", rev = "80eea34e73cfffe71e484cbaddb2d547076eaf09" }
 
 [profile.dev]
 opt-level = 0
-#https://doc.rust-lang.org/rustc/codegen-options/index.html#debug-assertions
-split-debuginfo = "unpacked"
+lto = false
+codegen-units = 16
+debug = true
 
 [profile.release]
+lto = true
 opt-level = 3
-## debuginfo — it makes ./target much bigger, which again harms caching. Depending on your preferred workflow,
-## you might consider disabling debuginfo unconditionally, this brings some benefits for local builds as well.
+codegen-units = 1
+
+[profile.profiling]
+inherits = "release"
+debug = true
+codegen-units = 16
+lto = false
+
 #strip = "debuginfo"
-## For from-scratch builds, incremental adds an extra dependency-tracking overhead. It also significantly increases
-## the amount of IO and the size of ./target, which make caching less effective.
-incremental = false
+incremental = true
+
+[patch.crates-io]
+# We're using a specific commit here because rust-rocksdb doesn't publish the latest version that includes the memory alignment fix.
+# For more details, see https://github.com/rust-rocksdb/rust-rocksdb/pull/868
+rocksdb = { git = "https://github.com/rust-rocksdb/rust-rocksdb", rev = "1710120e4549e04ba3baa6a1ee5a5a801fa45a72" }
+# Please use the following script to update collab.
+# Working directory: frontend
+#
+# To update the commit ID, run:
+# scripts/tool/update_collab_rev.sh new_rev_id
+#
+# To switch to the local path, run:
+# scripts/tool/update_collab_source.sh
+# ⚠️⚠️⚠️️
+collab = { version = "0.2", git = "https://github.com/AppFlowy-IO/AppFlowy-Collab", rev = "df936abcf8b5747c5d59efac5a0f733357060a1d" }
+collab-entity = { version = "0.2", git = "https://github.com/AppFlowy-IO/AppFlowy-Collab", rev = "df936abcf8b5747c5d59efac5a0f733357060a1d" }
+collab-folder = { version = "0.2", git = "https://github.com/AppFlowy-IO/AppFlowy-Collab", rev = "df936abcf8b5747c5d59efac5a0f733357060a1d" }
+collab-document = { version = "0.2", git = "https://github.com/AppFlowy-IO/AppFlowy-Collab", rev = "df936abcf8b5747c5d59efac5a0f733357060a1d" }
+collab-database = { version = "0.2", git = "https://github.com/AppFlowy-IO/AppFlowy-Collab", rev = "df936abcf8b5747c5d59efac5a0f733357060a1d" }
+collab-plugins = { version = "0.2", git = "https://github.com/AppFlowy-IO/AppFlowy-Collab", rev = "df936abcf8b5747c5d59efac5a0f733357060a1d" }
+collab-user = { version = "0.2", git = "https://github.com/AppFlowy-IO/AppFlowy-Collab", rev = "df936abcf8b5747c5d59efac5a0f733357060a1d" }
+collab-importer = { version = "0.1", git = "https://github.com/AppFlowy-IO/AppFlowy-Collab", rev = "df936abcf8b5747c5d59efac5a0f733357060a1d" }
+
+# Working directory: frontend
+# To update the commit ID, run:
+# scripts/tool/update_local_ai_rev.sh new_rev_id
+# ⚠️⚠️⚠️️
+appflowy-local-ai = { version = "0.1", git = "https://github.com/AppFlowy-IO/AppFlowy-LocalAI", rev = "6f064efe232268f8d396edbb4b84d57fbb640f13" }
+appflowy-plugin = { version = "0.1", git = "https://github.com/AppFlowy-IO/AppFlowy-LocalAI", rev = "6f064efe232268f8d396edbb4b84d57fbb640f13" }

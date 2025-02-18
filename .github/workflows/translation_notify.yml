@@ -3,7 +3,7 @@ on:
   push:
     branches: [ main ]
     paths:
-      - "frontend/app_flowy/assets/translations/en.json"
+      - "frontend/appflowy_flutter/assets/translations/en.json"
 
 jobs:
   Discord-Notify:
@@ -13,4 +13,6 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         with:
-          args: '@appflowytranslators English UI strings has been updated.'
+          args: |
+            @appflowytranslators English UI strings has been updated.
+            Link to changes: ${{github.event.compare}}

@@ -1,0 +1,690 @@
+{
+  "appName": "AppFlowy",
+  "defaultUsername": "Me",
+  "welcomeText": "@:appName 에 오신것을 환영합니다",
+  "githubStarText": "Star on GitHub",
+  "subscribeNewsletterText": "뉴스레터 구독",
+  "letsGoButtonText": "Let's Go",
+  "title": "제목",
+  "youCanAlso": "당신은 또한 수",
+  "and": "그리고",
+  "blockActions": {
+    "addBelowTooltip": "아래에 추가하려면 클릭",
+    "addAboveCmd": "Alt+클릭",
+    "addAboveMacCmd": "Option+클릭",
+    "addAboveTooltip": "위에 추가"
+  },
+  "signUp": {
+    "buttonText": "회원가입",
+    "title": "@:appName 에 회원가입",
+    "getStartedText": "시작하기",
+    "emptyPasswordError": "비밀번호는 공백일 수 없습니다",
+    "repeatPasswordEmptyError": "비밀번호 재입력란은 공백일 수 없습니다",
+    "unmatchedPasswordError": "재입력 하신 비밀번호가 같지 않습니다",
+    "alreadyHaveAnAccount": "이미 계정이 있으신가요?",
+    "emailHint": "이메일",
+    "passwordHint": "비밀번호",
+    "repeatPasswordHint": "비밀번호 재입력"
+  },
+  "signIn": {
+    "loginTitle": "@:appName 에 로그인",
+    "loginButtonText": "로그인",
+    "buttonText": "로그인",
+    "forgotPassword": "비밀번호를 잊으셨나요?",
+    "emailHint": "이메일",
+    "passwordHint": "비밀번호",
+    "dontHaveAnAccount": "계정이 없으신가요?",
+    "createAccount": "계정 생성",
+    "repeatPasswordEmptyError": "비밀번호 재입력란은 공백일 수 없습니다",
+    "unmatchedPasswordError": "재입력 하신 비밀번호가 같지 않습니다",
+    "or": "또는",
+    "signInWithMagicLink": "계속",
+    "pleaseInputYourEmail": "이메일 주소를 입력하세요",
+    "settings": "설정",
+    "invalidEmail": "유효한 이메일 주소를 입력하세요",
+    "alreadyHaveAnAccount": "이미 계정이 있나요?",
+    "logIn": "로그인",
+    "generalError": "오류가 발생했습니다. 나중에 다시 시도하세요",
+    "loginAsGuestButtonText": "시작하다"
+  },
+  "workspace": {
+    "defaultName": "내 워크스페이스",
+    "create": "워크스페이스 생성",
+    "hint": "워크스페이스",
+    "notFoundError": "워크스페이스를 찾을 수 없습니다"
+  },
+  "shareAction": {
+    "buttonText": "공유",
+    "workInProgress": "Coming soon",
+    "markdown": "마크다운",
+    "html": "HTML",
+    "clipboard": "클립보드에 복사",
+    "csv": "CSV",
+    "copyLink": "링크 복사",
+    "publishToTheWeb": "웹에 게시",
+    "publishToTheWebHint": "AppFlowy로 웹사이트 만들기",
+    "publish": "게시",
+    "unPublish": "게시 취소",
+    "visitSite": "사이트 방문",
+    "exportAsTab": "내보내기",
+    "publishTab": "게시",
+    "shareTab": "공유",
+    "publishOnAppFlowy": "AppFlowy에 게시",
+    "shareTabTitle": "협업 초대",
+    "shareTabDescription": "누구와도 쉽게 협업할 수 있습니다",
+    "copyLinkSuccess": "클립보드에 링크 복사",
+    "copyShareLink": "공유 링크 복사",
+    "copyLinkFailed": "클립보드에 링크를 복사하는 데 실패했습니다",
+    "copyLinkToBlockSuccess": "블록 링크를 클립보드에 복사했습니다",
+    "copyLinkToBlockFailed": "블록 링크를 클립보드에 복사하는 데 실패했습니다",
+    "manageAllSites": "모든 사이트 관리",
+    "updatePathName": "경로 이름 업데이트"
+  },
+  "moreAction": {
+    "small": "작은",
+    "medium": "중간",
+    "large": "크기가 큰",
+    "fontSize": "글꼴 크기",
+    "import": "가져오기",
+    "moreOptions": "추가 옵션"
+  },
+  "importPanel": {
+    "textAndMarkdown": "텍스트 및 마크다운",
+    "documentFromV010": "v0.1.0의 문서",
+    "databaseFromV010": "v0.1.0의 데이터베이스",
+    "csv": "CSV",
+    "database": "데이터 베이스"
+  },
+  "disclosureAction": {
+    "rename": "이름변경",
+    "delete": "삭제",
+    "duplicate": "복제",
+    "openNewTab": "새 탭에서 열기"
+  },
+  "blankPageTitle": "빈 페이지",
+  "newPageText": "새로운 페이지",
+  "chat": {
+    "newChat": "AI 대화"
+  },
+  "trash": {
+    "text": "휴지통",
+    "restoreAll": "모두 복구",
+    "deleteAll": "모두 삭제",
+    "pageHeader": {
+      "fileName": "파일 이름",
+      "lastModified": "수정날짜",
+      "created": "생성날짜"
+    },
+    "confirmDeleteAll": {
+      "title": "휴지통의 모든 페이지를 삭제하시겠습니까?",
+      "caption": "이 작업은 취소할 수 없습니다."
+    },
+    "confirmRestoreAll": {
+      "title": "휴지통의 모든 페이지를 복원하시겠습니까?",
+      "caption": "이 작업은 취소할 수 없습니다."
+    }
+  },
+  "deletePagePrompt": {
+    "text": "현재 페이지는 휴지통에 있습니다",
+    "restore": "페이지 복구",
+    "deletePermanent": "영구 삭제"
+  },
+  "dialogCreatePageNameHint": "페이지 이름",
+  "questionBubble": {
+    "shortcuts": "바로 가기",
+    "whatsNew": "새로운 소식",
+    "help": "도움 및 지원",
+    "markdown": "가격 인하",
+    "debug": {
+      "name": "디버그 정보",
+      "success": "디버그 정보를 클립보드로 복사했습니다.",
+      "fail": "디버그 정보를 클립보드로 복사할 수 없습니다."
+    },
+    "feedback": "피드백"
+  },
+  "menuAppHeader": {
+    "addPageTooltip": "하위에 페이지 추가",
+    "defaultNewPageName": "제목없음",
+    "renameDialog": "이름변경"
+  },
+  "toolbar": {
+    "undo": "실행취소",
+    "redo": "재실행",
+    "bold": "굵게",
+    "italic": "기울임꼴",
+    "underline": "밑줄",
+    "strike": "취소선",
+    "numList": "번호 매기기 목록",
+    "bulletList": "글머리 기호 목록",
+    "checkList": "작업 목록",
+    "inlineCode": "인라인 코드",
+    "quote": "인용구 블록",
+    "header": "헤더",
+    "highlight": "하이라이트",
+    "color": "색상",
+    "addLink": "링크 추가",
+    "link": "링크"
+  },
+  "tooltip": {
+    "lightMode": "라이트 모드로 변경",
+    "darkMode": "다크 모드로 변경",
+    "openAsPage": "페이지로 열기",
+    "addNewRow": "열 추가",
+    "openMenu": "메뉴를 여시려면 클릭하세요",
+    "dragRow": "행을 재정렬하려면 길게 누르세요.",
+    "viewDataBase": "데이터베이스 보기",
+    "referencePage": "이 {name}은(는) 참조됩니다",
+    "addBlockBelow": "아래에 블록 추가"
+  },
+  "sideBar": {
+    "closeSidebar": "사이드바 닫기",
+    "openSidebar": "사이드바 열기"
+  },
+  "notifications": {
+    "export": {
+      "markdown": "마크다운으로 노트를 내보냄",
+      "path": "Documents/flowy"
+    }
+  },
+  "contactsPage": {
+    "title": "연락처",
+    "whatsHappening": "이번주에는 무슨 일이 있나요?",
+    "addContact": "연락처 추가",
+    "editContact": "연락처 편집"
+  },
+  "button": {
+    "ok": "확인",
+    "done": "완료",
+    "cancel": "취소",
+    "signIn": "로그인",
+    "signOut": "로그아웃",
+    "complete": "완료",
+    "save": "저장",
+    "generate": "생성하다",
+    "esc": "ESC",
+    "keep": "유지하다",
+    "tryAgain": "다시 시도하십시오",
+    "discard": "버리다",
+    "replace": "바꾸다",
+    "insertBelow": "아래에 삽입",
+    "upload": "업로드",
+    "edit": "편집하다",
+    "delete": "삭제",
+    "duplicate": "복제하다",
+    "putback": "다시 집어 넣어",
+    "share": "공유"
+  },
+  "label": {
+    "welcome": "환영합니다!",
+    "firstName": "이름",
+    "middleName": "중간 이름",
+    "lastName": "성",
+    "stepX": "{X} 단계"
+  },
+  "oAuth": {
+    "err": {
+      "failedTitle": "계정에 연결을 할 수 없습니다.",
+      "failedMsg": "브라우저에서 회원가입이 완료되었는지 확인해주세요."
+    },
+    "google": {
+      "title": "GOOGLE SIGN-IN",
+      "instruction1": "구글 연락처를 가져오기 위해서 웹브라우저로 앱을 승인 해야 합니다.",
+      "instruction2": "아이콘을 클릭 또는 텍스트를 선택해서 이 코드를 클립보드로 복사하세요:",
+      "instruction3": "웹브라우저로 다음 링크로 가셔서 위 코드를 입력해주세요:",
+      "instruction4": "가입 완료 후 아래 버튼을 눌러주세요:"
+    }
+  },
+  "settings": {
+    "title": "설정",
+    "accountPage": {
+      "general": {
+        "title": "사용자 이름 & 프로필 사진",
+        "changeProfilePicture": "프로필 사진 변경"
+      }
+    },
+    "aiPage": {
+      "keys": {
+        "localAILoaded": "로컬 AI 모델이 성공적으로 추가되어 사용할 준비가 되었습니다.",
+        "localAIStart": "로컬 AI 대화 시작중...",
+        "localAILoading": "로컬 AI 대화 모델 로딩중...",
+        "localAIStopped": "로컬 AI가 중단되었습니다",
+        "failToLoadLocalAI": "로컬 AI를 시작하지 못했습니다",
+        "restartLocalAI": "로컬 AI 재시작",
+        "disableLocalAIDescription": "로컬 AI를 비활성화하시겠습니까?"
+      }
+    },
+    "planPage": {
+      "planUsage": {
+        "aiOnDeviceToggle": "최고의 개인 정보 보호를 위한 로컬 AI"
+      }
+    },
+    "cancelSurveyDialog": {
+      "questionThree": {
+        "answerFour": "로컬 AI 모델에 대한 액세스"
+      }
+    },
+    "menu": {
+      "appearance": "화면",
+      "language": "언어",
+      "user": "사용자",
+      "files": "파일",
+      "open": "설정 열기"
+    },
+    "appearance": {
+      "fontFamily": {
+        "label": "글꼴 패밀리",
+        "search": "검색"
+      },
+      "themeMode": {
+        "label": "테마 모드",
+        "light": "라이트 모드",
+        "dark": "다크 모드",
+        "system": "시스템에 적응"
+      },
+      "themeUpload": {
+        "button": "업로드",
+        "description": "아래 버튼을 사용하여 나만의 @:appName 테마를 업로드하세요.",
+        "loading": "테마를 확인하고 업로드하는 동안 잠시 기다려 주십시오...",
+        "uploadSuccess": "테마가 성공적으로 업로드되었습니다.",
+        "deletionFailure": "테마를 삭제하지 못했습니다. 수동으로 삭제해 보십시오.",
+        "filePickerDialogTitle": ".flowy_plugin 파일 선택",
+        "urlUploadFailure": "URL을 열지 못했습니다: {}",
+        "failure": "업로드된 테마의 형식이 잘못되었습니다."
+      },
+      "theme": "주제",
+      "builtInsLabel": "내장 테마",
+      "pluginsLabel": "플러그인",
+      "lightLabel": "라이트 모드",
+      "darkLabel": "다크 모드"
+    },
+    "files": {
+      "copy": "복사",
+      "defaultLocation": "파일 및 데이터 저장 위치 읽기",
+      "exportData": "데이터 내보내기",
+      "doubleTapToCopy": "경로를 복사하려면 두 번 탭하세요.",
+      "restoreLocation": "@:appName 기본 경로로 복원",
+      "customizeLocation": "다른 폴더 열기",
+      "restartApp": "변경 사항을 적용하려면 앱을 다시 시작하십시오.",
+      "exportDatabase": "데이터베이스 내보내기",
+      "selectFiles": "내보낼 파일을 선택하십시오",
+      "selectAll": "모두 선택",
+      "deselectAll": "모두 선택 취소",
+      "createNewFolder": "새 폴더 만들기",
+      "createNewFolderDesc": "데이터를 저장할 위치를 알려주십시오.",
+      "defineWhereYourDataIsStored": "데이터가 저장되는 위치 정의",
+      "open": "열려 있는",
+      "openFolder": "기존 폴더 열기",
+      "openFolderDesc": "기존 @:appName 폴더에서 읽고 쓰기",
+      "folderHintText": "폴더 이름",
+      "location": "새 폴더 만들기",
+      "locationDesc": "@:appName 데이터 폴더의 이름을 선택하세요",
+      "browser": "검색",
+      "create": "만들다",
+      "set": "세트",
+      "folderPath": "폴더를 저장할 경로",
+      "locationCannotBeEmpty": "경로는 비워둘 수 없습니다.",
+      "pathCopiedSnackbar": "파일 저장 경로가 클립보드에 복사되었습니다!",
+      "changeLocationTooltips": "데이터 디렉토리 변경",
+      "change": "변화",
+      "openLocationTooltips": "다른 데이터 디렉토리 열기",
+      "openCurrentDataFolder": "현재 데이터 디렉토리 열기",
+      "recoverLocationTooltips": "@:appName의 기본 데이터 디렉터리로 재설정",
+      "exportFileSuccess": "파일을 성공적으로 내보냈습니다!",
+      "exportFileFail": "파일 내보내기 실패!",
+      "export": "내보내다"
+    },
+    "user": {
+      "name": "이름",
+      "selectAnIcon": "아이콘을 선택하세요",
+      "pleaseInputYourOpenAIKey": "AI 키를 입력하십시오"
+    }
+  },
+  "grid": {
+    "deleteView": "이 보기를 삭제하시겠습니까?",
+    "createView": "새로운",
+    "settings": {
+      "filter": "필터",
+      "sort": "종류",
+      "sortBy": "정렬 기준",
+      "properties": "속성",
+      "reorderPropertiesTooltip": "드래그하여 속성 재정렬",
+      "group": "그룹",
+      "addFilter": "필터 추가",
+      "deleteFilter": "필터 삭제",
+      "filterBy": "필터링 기준...",
+      "typeAValue": "값을 입력하세요...",
+      "layout": "공들여 나열한 것",
+      "databaseLayout": "공들여 나열한 것",
+      "Properties": "속성"
+    },
+    "textFilter": {
+      "contains": "포함",
+      "doesNotContain": "포함되어 있지 않다",
+      "endsWith": "로 끝나다",
+      "startWith": "시작",
+      "is": "~이다",
+      "isNot": "아니다",
+      "isEmpty": "비었다",
+      "isNotEmpty": "비어 있지 않음",
+      "choicechipPrefix": {
+        "isNot": "아니다",
+        "startWith": "시작",
+        "endWith": "로 끝나다",
+        "isEmpty": "비었다",
+        "isNotEmpty": "비어있지 않다"
+      }
+    },
+    "checkboxFilter": {
+      "isChecked": "체크",
+      "isUnchecked": "체크 해제",
+      "choicechipPrefix": {
+        "is": "~이다"
+      }
+    },
+    "checklistFilter": {
+      "isComplete": "완료되었습니다",
+      "isIncomplted": "불완전하다"
+    },
+    "selectOptionFilter": {
+      "is": "~이다",
+      "isNot": "아니다",
+      "contains": "포함",
+      "doesNotContain": "포함되어 있지 않다",
+      "isEmpty": "비었다",
+      "isNotEmpty": "비어 있지 않음"
+    },
+    "field": {
+      "hide": "숨기기",
+      "insertLeft": "왼쪽 삽입",
+      "insertRight": "오른쪽 삽입",
+      "duplicate": "복제",
+      "delete": "삭제",
+      "textFieldName": "텍스트",
+      "checkboxFieldName": "체크박스",
+      "dateFieldName": "날짜",
+      "updatedAtFieldName": "마지막 수정 시간",
+      "createdAtFieldName": "만든 시간",
+      "numberFieldName": "숫자",
+      "singleSelectFieldName": "선택",
+      "multiSelectFieldName": "다중선택",
+      "urlFieldName": "링크",
+      "checklistFieldName": "체크리스트",
+      "numberFormat": "숫자 형식",
+      "dateFormat": "날짜 형식",
+      "includeTime": "시간 표시",
+      "dateFormatFriendly": "월 일, 년",
+      "dateFormatISO": "년-월-일",
+      "dateFormatLocal": "월/일/년",
+      "dateFormatUS": "년/월/일",
+      "dateFormatDayMonthYear": "일/월/년",
+      "timeFormat": "시간 형식",
+      "invalidTimeFormat": "잘못된 형식",
+      "timeFormatTwelveHour": "12 시간",
+      "timeFormatTwentyFourHour": "24 시간",
+      "addSelectOption": "옵션 추가",
+      "optionTitle": "옵션",
+      "addOption": "옵션 추가",
+      "editProperty": "속성 편집",
+      "newProperty": "열 추가",
+      "deleteFieldPromptMessage": "해당 속성을 삭제 하시겠습니까?"
+    },
+    "sort": {
+      "ascending": "오름차순",
+      "descending": "내림차순",
+      "addSort": "정렬 추가",
+      "deleteSort": "정렬 삭제"
+    },
+    "row": {
+      "duplicate": "복제",
+      "delete": "삭제",
+      "textPlaceholder": "비어있음",
+      "copyProperty": "속성이 클립보드로 복사됨",
+      "count": "개수",
+      "newRow": "행 추가",
+      "action": "행동"
+    },
+    "selectOption": {
+      "create": "생성",
+      "purpleColor": "보라색",
+      "pinkColor": "핑크색",
+      "lightPinkColor": "연한 핑크색",
+      "orangeColor": "오렌지색",
+      "yellowColor": "노랑색",
+      "limeColor": "라임색",
+      "greenColor": "초록색",
+      "aquaColor": "아쿠아색",
+      "blueColor": "파랑색",
+      "deleteTag": "태그 삭제",
+      "colorPanelTitle": "색상",
+      "panelTitle": "옵션 선택 또는 생성",
+      "searchOption": "옵션 검색"
+    },
+    "checklist": {
+      "addNew": "항목 추가"
+    },
+    "menuName": "그리드",
+    "referencedGridPrefix": "관점"
+  },
+  "document": {
+    "menuName": "문서",
+    "date": {
+      "timeHintTextInTwelveHour": "01:00 PM",
+      "timeHintTextInTwentyFourHour": "13:00"
+    },
+    "slashMenu": {
+      "board": {
+        "selectABoardToLinkTo": "연결할 보드 선택",
+        "createANewBoard": "새 보드 만들기"
+      },
+      "grid": {
+        "selectAGridToLinkTo": "연결할 그리드 선택",
+        "createANewGrid": "새 그리드 만들기"
+      },
+      "calendar": {
+        "selectACalendarToLinkTo": "연결할 캘린더 선택",
+        "createANewCalendar": "새 캘린더 만들기"
+      }
+    },
+    "selectionMenu": {
+      "outline": "개요"
+    },
+    "plugins": {
+      "referencedBoard": "참조 보드",
+      "referencedGrid": "참조된 그리드",
+      "referencedCalendar": "참조된 달력",
+      "autoGeneratorMenuItemName": "AI 작성자",
+      "autoGeneratorTitleName": "AI: AI에게 무엇이든 쓰라고 요청하세요...",
+      "autoGeneratorLearnMore": "더 알아보기",
+      "autoGeneratorGenerate": "생성하다",
+      "autoGeneratorHintText": "OpenAI에게 물어보세요 ...",
+      "autoGeneratorCantGetOpenAIKey": "AI 키를 가져올 수 없습니다.",
+      "autoGeneratorRewrite": "고쳐 쓰기",
+      "smartEdit": "AI 어시스턴트",
+      "aI": "AI",
+      "smartEditFixSpelling": "맞춤법 수정",
+      "warning": "⚠️ AI 응답은 부정확하거나 오해의 소지가 있을 수 있습니다.",
+      "smartEditSummarize": "요약하다",
+      "smartEditImproveWriting": "쓰기 향상",
+      "smartEditMakeLonger": "더 길게",
+      "smartEditCouldNotFetchResult": "OpenAI에서 결과를 가져올 수 없습니다.",
+      "smartEditCouldNotFetchKey": "AI 키를 가져올 수 없습니다.",
+      "smartEditDisabled": "설정에서 AI 연결",
+      "discardResponse": "AI 응답을 삭제하시겠습니까?",
+      "createInlineMathEquation": "방정식 만들기",
+      "toggleList": "토글 목록",
+      "cover": {
+        "changeCover": "커버를 바꾸다",
+        "colors": "그림 물감",
+        "images": "이미지",
+        "clearAll": "모두 지우기",
+        "abstract": "추상적인",
+        "addCover": "표지 추가",
+        "addLocalImage": "로컬 이미지 추가",
+        "invalidImageUrl": "잘못된 이미지 URL",
+        "failedToAddImageToGallery": "갤러리에 이미지를 추가하지 못했습니다.",
+        "enterImageUrl": "이미지 URL 입력",
+        "add": "추가하다",
+        "back": "뒤쪽에",
+        "saveToGallery": "갤러리에 저장",
+        "removeIcon": "아이콘 제거",
+        "pasteImageUrl": "이미지 URL 붙여넣기",
+        "or": "또는",
+        "pickFromFiles": "파일에서 선택",
+        "couldNotFetchImage": "이미지를 가져올 수 없습니다.",
+        "imageSavingFailed": "이미지 저장 실패",
+        "addIcon": "아이콘 추가",
+        "coverRemoveAlert": "삭제 후 표지에서 제거됩니다.",
+        "alertDialogConfirmation": "너 정말 계속하고 싶니?"
+      },
+      "mathEquation": {
+        "addMathEquation": "수학 방정식 추가",
+        "editMathEquation": "수학 방정식 편집"
+      },
+      "optionAction": {
+        "click": "딸깍 하는 소리",
+        "toOpenMenu": " 메뉴 열기",
+        "delete": "삭제",
+        "duplicate": "복제하다",
+        "turnInto": "로 변하다",
+        "moveUp": "이동",
+        "moveDown": "아래로 이동",
+        "color": "색상",
+        "align": "맞추다",
+        "left": "왼쪽",
+        "center": "센터",
+        "right": "오른쪽",
+        "defaultColor": "기본"
+      },
+      "image": {
+        "copiedToPasteBoard": "이미지 링크가 클립보드에 복사되었습니다."
+      },
+      "outline": {
+        "addHeadingToCreateOutline": "제목을 추가하여 목차를 만듭니다."
+      }
+    },
+    "textBlock": {
+      "placeholder": "명령에 '/' 입력"
+    },
+    "title": {
+      "placeholder": "무제"
+    },
+    "imageBlock": {
+      "placeholder": "이미지를 추가하려면 클릭하세요.",
+      "upload": {
+        "label": "업로드",
+        "placeholder": "이미지를 업로드하려면 클릭하세요."
+      },
+      "url": {
+        "label": "이미지 URL",
+        "placeholder": "이미지 URL 입력"
+      },
+      "support": "이미지 크기 제한은 5MB입니다. 지원되는 형식: JPEG, PNG, GIF, SVG",
+      "error": {
+        "invalidImage": "잘못된 이미지",
+        "invalidImageSize": "이미지 크기는 5MB 미만이어야 합니다.",
+        "invalidImageFormat": "이미지 형식은 지원되지 않습니다. 지원되는 형식: JPEG, PNG, GIF, SVG",
+        "invalidImageUrl": "잘못된 이미지 URL"
+      }
+    },
+    "codeBlock": {
+      "language": {
+        "label": "언어",
+        "placeholder": "언어 선택"
+      }
+    },
+    "inlineLink": {
+      "placeholder": "링크 붙여넣기 또는 입력",
+      "url": {
+        "label": "링크 URL",
+        "placeholder": "링크 URL 입력"
+      },
+      "title": {
+        "label": "링크 제목",
+        "placeholder": "링크 제목 입력"
+      }
+    }
+  },
+  "board": {
+    "column": {
+      "createNewCard": "추가"
+    },
+    "menuName": "보드",
+    "referencedBoardPrefix": "관점",
+    "mobile": {
+      "showGroup": "그룹 표시",
+      "showGroupContent": "이 그룹을 보드에 표시하시겠습니까?",
+      "failedToLoad": "보드 보기를 로드하지 못했습니다."
+    }
+  },
+  "calendar": {
+    "menuName": "달력",
+    "defaultNewCalendarTitle": "무제",
+    "navigation": {
+      "today": "오늘",
+      "jumpToday": "오늘로 이동",
+      "previousMonth": "지난달",
+      "nextMonth": "다음 달"
+    },
+    "settings": {
+      "showWeekNumbers": "주 번호 표시",
+      "showWeekends": "주말 보기",
+      "firstDayOfWeek": "주 시작",
+      "layoutDateField": "레이아웃 캘린더",
+      "noDateTitle": "날짜 없음",
+      "clickToAdd": "캘린더에 추가하려면 클릭하세요.",
+      "name": "달력 레이아웃",
+      "noDateHint": "예약되지 않은 일정이 여기에 표시됩니다."
+    },
+    "referencedCalendarPrefix": "관점"
+  },
+  "errorDialog": {
+    "title": "@:appName 오류",
+    "howToFixFallback": "불편을 끼쳐드려 죄송합니다! 오류를 설명하는 문제를 GitHub 페이지에 제출하세요.",
+    "github": "GitHub에서 보기"
+  },
+  "search": {
+    "label": "검색",
+    "placeholder": {
+      "actions": "검색 작업..."
+    }
+  },
+  "message": {
+    "copy": {
+      "success": "복사했습니다!",
+      "fail": "복사할 수 없음"
+    }
+  },
+  "unSupportBlock": "현재 버전은 이 블록을 지원하지 않습니다.",
+  "views": {
+    "deleteContentTitle": "{pageType}을(를) 삭제하시겠습니까?",
+    "deleteContentCaption": "이 {pageType}을(를) 삭제하면 휴지통에서 복원할 수 있습니다."
+  },
+  "newSettings": {
+    "myAccount": {
+      "deleteAccount": {
+        "dialogContent2": "이 작업은 실행 취소할 수 없으며 모든 작업 공간에서의 액세스가 제거되고, 개인 작업 공간을 포함한 전체 계정이 삭제되고, 모든 공유 작업 공간에서 제거됩니다."
+      }
+    }
+  },
+  "space": {
+    "createNewSpace": "새로운 스페이스 생성",
+    "defaultSpaceName": "일반"
+  },
+  "publish": {
+    "saveThisPage": "이 템플릿으로 시작"
+  },
+  "template": {
+    "deleteFromTemplate": "템플릿 목록에서 제거",
+    "relatedTemplates": "관련된 템플릿 목록",
+    "deleteTemplate": "템플릿 제거",
+    "removeRelatedTemplate": "관련된 템플릿 제거",
+    "label": "템플릿 목록"
+  },
+  "subscribe": {
+    "cancelPlan": {
+      "questionThree": {
+        "answerFour": "로컬 AI 모델에 대한 액세스"
+      }
+    }
+  }
+}

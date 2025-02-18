@@ -1,23 +1,23 @@
 #[allow(unused_imports)]
 use crate::errors::{DispatchError, InternalError};
 use crate::{
-    request::EventRequest,
-    response::{EventResponse, ResponseBuilder},
+  request::AFPluginEventRequest,
+  response::{AFPluginEventResponse, ResponseBuilder},
 };
 use bytes::Bytes;
 
-pub trait Responder {
-    fn respond_to(self, req: &EventRequest) -> EventResponse;
+pub trait AFPluginResponder {
+  fn respond_to(self, req: &AFPluginEventRequest) -> AFPluginEventResponse;
 }
 
 macro_rules! impl_responder {
-    ($res: ty) => {
-        impl Responder for $res {
-            fn respond_to(self, _: &EventRequest) -> EventResponse {
-                ResponseBuilder::Ok().data(self).build()
-            }
-        }
-    };
+  ($res: ty) => {
+    impl AFPluginResponder for $res {
+      fn respond_to(self, _: &AFPluginEventRequest) -> AFPluginEventResponse {
+        ResponseBuilder::Ok().data(self).build()
+      }
+    }
+  };
 }
 
 impl_responder!(&'static str);
@@ -27,15 +27,15 @@ impl_responder!(Bytes);
 impl_responder!(());
 impl_responder!(Vec<u8>);
 
-impl<T, E> Responder for Result<T, E>
+impl<T, E> AFPluginResponder for Result<T, E>
 where
-    T: Responder,
-    E: Into<DispatchError>,
+  T: AFPluginResponder,
+  E: Into<DispatchError>,
 {
-    fn respond_to(self, request: &EventRequest) -> EventResponse {
-        match self {
-            Ok(val) => val.respond_to(request),
-            Err(e) => e.into().into(),
-        }
+  fn respond_to(self, request: &AFPluginEventRequest) -> AFPluginEventResponse {
+    match self {
+      Ok(val) => val.respond_to(request),
+      Err(e) => e.into().into(),
     }
+  }
 }

@@ -1,55 +1,60 @@
 use std::future::Future;
 
 use crate::{
-    request::{payload::Payload, EventRequest},
-    response::EventResponse,
+  request::{payload::Payload, AFPluginEventRequest},
+  response::AFPluginEventResponse,
 };
 
 pub trait Service<Request> {
-    type Response;
-    type Error;
-    type Future: Future<Output = Result<Self::Response, Self::Error>>;
+  type Response;
+  type Error;
+  type Future: Future<Output = Result<Self::Response, Self::Error>>;
 
-    fn call(&self, req: Request) -> Self::Future;
+  fn call(&self, req: Request) -> Self::Future;
 }
 
-pub trait ServiceFactory<Request> {
-    type Response;
-    type Error;
-    type Service: Service<Request, Response = Self::Response, Error = Self::Error>;
-    type Context;
-    type Future: Future<Output = Result<Self::Service, Self::Error>>;
+/// Returns a future that can handle the request. For the moment, the request will be the
+/// `AFPluginRequest`
+pub trait AFPluginServiceFactory<Request> {
+  type Response;
+  type Error;
+  type Service: Service<Request, Response = Self::Response, Error = Self::Error>;
+  type Context;
+  type Future: Future<Output = Result<Self::Service, Self::Error>>;
 
-    fn new_service(&self, cfg: Self::Context) -> Self::Future;
+  fn new_service(&self, cfg: Self::Context) -> Self::Future;
 }
 
-pub struct ServiceRequest {
-    req: EventRequest,
-    payload: Payload,
+pub(crate) struct ServiceRequest {
+  event_state: AFPluginEventRequest,
+  payload: Payload,
 }
 
 impl ServiceRequest {
-    pub fn new(req: EventRequest, payload: Payload) -> Self {
-        Self { req, payload }
+  pub(crate) fn new(event_state: AFPluginEventRequest, payload: Payload) -> Self {
+    Self {
+      event_state,
+      payload,
     }
+  }
 
-    #[inline]
-    pub fn into_parts(self) -> (EventRequest, Payload) {
-        (self.req, self.payload)
-    }
+  #[inline]
+  pub(crate) fn into_parts(self) -> (AFPluginEventRequest, Payload) {
+    (self.event_state, self.payload)
+  }
 }
 
 pub struct ServiceResponse {
-    request: EventRequest,
-    response: EventResponse,
+  request: AFPluginEventRequest,
+  response: AFPluginEventResponse,
 }
 
 impl ServiceResponse {
-    pub fn new(request: EventRequest, response: EventResponse) -> Self {
-        ServiceResponse { request, response }
-    }
+  pub fn new(request: AFPluginEventRequest, response: AFPluginEventResponse) -> Self {
+    ServiceResponse { request, response }
+  }
 
-    pub fn into_parts(self) -> (EventRequest, EventResponse) {
-        (self.request, self.response)
-    }
+  pub fn into_parts(self) -> (AFPluginEventRequest, AFPluginEventResponse) {
+    (self.request, self.response)
+  }
 }

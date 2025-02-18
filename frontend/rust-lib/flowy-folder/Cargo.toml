@@ -1,52 +1,55 @@
 [package]
 name = "flowy-folder"
 version = "0.1.0"
-edition = "2018"
+edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-folder-rev-model = { path = "../../../shared-lib/folder-rev-model" }
-flowy-sync = { path = "../../../shared-lib/flowy-sync" }
-flowy-http-model = { path = "../../../shared-lib/flowy-http-model" }
-flowy-derive = { path = "../../../shared-lib/flowy-derive" }
-lib-ot = { path = "../../../shared-lib/lib-ot" }
-lib-infra = { path = "../../../shared-lib/lib-infra" }
-
-flowy-document = { path = "../flowy-document" }
-flowy-database = { path = "../flowy-database" }
-flowy-error = { path = "../flowy-error", features = ["db", "http_server"]}
-dart-notify = { path = "../dart-notify" }
-lib-dispatch = { path = "../lib-dispatch" }
-flowy-revision = { path = "../flowy-revision" }
-
-parking_lot = "0.12.1"
-protobuf = {version = "2.18.0"}
-log = "0.4.14"
-diesel = {version = "1.4.8", features = ["sqlite"]}
-diesel_derives = {version = "1.4.1", features = ["sqlite"]}
-futures = "0.3.15"
-pin-project = "1.0.0"
-strum = "0.21"
-strum_macros = "0.21"
-tokio = { version = "1", features = ["rt"] }
+collab = { workspace = true }
+collab-folder = { workspace = true }
+collab-document = { workspace = true }
+collab-entity = { workspace = true }
+collab-plugins = { workspace = true }
+collab-integrate = { workspace = true }
+flowy-folder-pub = { workspace = true }
+flowy-search-pub = { workspace = true }
+flowy-sqlite = { workspace = true }
+flowy-derive.workspace = true
+flowy-notification = { workspace = true }
+arc-swap.workspace = true
+unicode-segmentation = "1.10"
+tracing.workspace = true
+flowy-error = { path = "../flowy-error", features = [
+  "impl_from_dispatch_error",
+  "impl_from_collab_folder",
+] }
+lib-dispatch = { workspace = true }
+bytes.workspace = true
+lib-infra = { workspace = true }
+tokio = { workspace = true, features = ["sync"] }
+nanoid = "0.4.0"
 lazy_static = "1.4.0"
-serde = { version = "1.0", features = ["derive"] }
-tracing = { version = "0.1", features = ["log"] }
-bytes = { version = "1.0" }
-unicode-segmentation = "1.8"
+chrono = { workspace = true, default-features = false, features = ["clock"] }
+strum_macros = "0.21"
+protobuf.workspace = true
+uuid.workspace = true
+tokio-stream = { workspace = true, features = ["sync"] }
+serde = { workspace = true, features = ["derive"] }
+serde_json.workspace = true
+validator.workspace = true
+async-trait.workspace = true
+client-api = { workspace = true }
+regex = "1.9.5"
+futures = "0.3.30"
+dashmap.workspace = true
 
-[dev-dependencies]
-serde_json = "1.0"
-flowy-folder = { path = "../flowy-folder", features = ["flowy_unit_test"]}
-flowy-test = { path = "../flowy-test" }
 
 [build-dependencies]
-lib-infra = { path = "../../../shared-lib/lib-infra", features = [ "proto_gen"] }
+flowy-codegen.workspace = true
 
 [features]
-default = []
-sync = []
-cloud_sync = ["sync"]
-flowy_unit_test = ["lib-ot/flowy_unit_test", "flowy-revision/flowy_unit_test"]
-dart = ["lib-infra/dart"]
+dart = ["flowy-codegen/dart", "flowy-notification/dart"]
+tauri_ts = ["flowy-codegen/ts", "flowy-notification/tauri_ts"]
+web_ts = ["flowy-codegen/ts", "flowy-notification/web_ts"]
+test_helper = []

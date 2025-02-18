@@ -1,12 +1,29 @@
 
-[tasks.install_protobuf]
+[tasks.install_web_protobuf.windows]
+script = """
+npm install -g protoc-gen-ts typescript@4.9.5
+"""
+script_runner = "@shell"
+
+[tasks.install_web_protobuf.mac]
+script = """
+sudo npm install -g protoc-gen-ts typescript@4.9.5
+"""
+script_runner = "@shell"
+
+[tasks.install_web_protobuf.linux]
+script = """
+sudo npm install -g protoc-gen-ts typescript@4.9.5
+"""
+script_runner = "@shell"
+
+[tasks.install_flutter_protobuf]
 mac_alias = "install-protobuf"
 windows_alias = "install-protobuf-windows"
 linux_alias = "install-protobuf"
 
 [tasks.install-protobuf]
-condition_script = [
-    """
+condition_script = ["""
     if ! command -v protoc-gen-dart
     then
         exit 0
@@ -14,10 +31,8 @@ condition_script = [
 
     # installed
     exit 1
-    """,
-]
-run_task = { name = ["install_protobuf_compiler"] }
-
+    """]
+run_task = { name = ["install_flutter_protobuf_compiler"] }
 
 [tasks.install-protobuf-windows]
 script = """
@@ -28,7 +43,7 @@ if is_empty ${ret}
 end
 ret = which protoc-gen-dart
 if is_empty ${ret}
-    exec cmd.exe /c dart pub global activate protoc_plugin
+    exec cmd.exe /c dart pub global activate protoc_plugin 21.1.2
 end
 ret = which protoc-gen-dart
 if is_empty ${ret}
@@ -40,94 +55,16 @@ end
 script_runner = "@duckscript"
 
 
-[tasks.install_protobuf_compiler]
+[tasks.install_flutter_protobuf_compiler]
 script = """
 echo "Install protoc_plugin (Dart)"
-dart pub global activate protoc_plugin
+dart pub global activate protoc_plugin 21.1.2
 """
 script_runner = "@shell"
 
-[tasks.install_protobuf_compiler.linux]
+[tasks.install_flutter_protobuf_compiler.linux]
 script = """
 echo "Install protoc_plugin (Dart)"
-dart pub global activate protoc_plugin
+dart pub global activate protoc_plugin 21.1.2
 """
 script_runner = "@shell"
-
-
-[tasks.gen_pb_file]
-script = [
-    """
-    flowy_tool=${CARGO_MAKE_WORKSPACE_WORKING_DIRECTORY}/scripts/flowy-tool/Cargo.toml
-    rust_lib=${CARGO_MAKE_WORKSPACE_WORKING_DIRECTORY}/rust-lib/
-    shared_lib=${CARGO_MAKE_WORKSPACE_WORKING_DIRECTORY}/../shared-lib
-    flutter_lib=${CARGO_MAKE_WORKSPACE_WORKING_DIRECTORY}/app_flowy/packages
-
-    derive_meta=${shared_lib}/flowy-derive/src/derive_cache/derive_cache.rs
-    flutter_package_lib=${flutter_lib}/flowy_sdk/lib
-
-    cargo run \
-     --manifest-path ${flowy_tool} pb-gen \
-     --rust_sources ${rust_lib} ${shared_lib} \
-     --derive_meta=${derive_meta} \
-     --flutter_package_lib=${flutter_package_lib}
-    """,
-]
-script_runner = "@shell"
-
-
-[tasks.gen_pb_file.windows]
-script = [
-    """
-    flowy_tool=set ${CARGO_MAKE_WORKSPACE_WORKING_DIRECTORY}/scripts/flowy-tool/Cargo.toml
-    rust_source=set ${CARGO_MAKE_WORKSPACE_WORKING_DIRECTORY}/rust-lib/
-    # rust_lib=set ${CARGO_MAKE_WORKSPACE_WORKING_DIRECTORY}/rust-lib
-    shared_lib=set ${CARGO_MAKE_WORKSPACE_WORKING_DIRECTORY}/../shared-lib
-    flutter_lib=set ${CARGO_MAKE_WORKSPACE_WORKING_DIRECTORY}/app_flowy/packages
-
-    derive_meta=set ${shared_lib}/flowy-derive/src/derive_cache/derive_cache.rs
-    flutter_package_lib=set ${flutter_lib}/flowy_sdk/lib
-
-    exec cmd /c cargo run \
-     --manifest-path ${flowy_tool} pb-gen \
-     --rust_source=${rust_source} \
-     --derive_meta=${derive_meta} \
-     --flutter_package_lib=${flutter_package_lib}
-    """,
-]
-script_runner = "@duckscript"
-
-
-[tasks.gen_dart_event]
-script = [
-    """
-    flowy_tool=${CARGO_MAKE_WORKSPACE_WORKING_DIRECTORY}/scripts/flowy-tool/Cargo.toml
-    flutter_lib=${CARGO_MAKE_WORKSPACE_WORKING_DIRECTORY}/app_flowy/packages
-
-    rust_source=${CARGO_MAKE_WORKSPACE_WORKING_DIRECTORY}/rust-lib/
-    output=${flutter_lib}/flowy_sdk/lib/dispatch/dart_event.dart
-
-    cargo run \
-     --manifest-path ${flowy_tool} dart-event \
-     --rust_sources=${rust_source} \
-     --output=${output}
-    """,
-]
-script_runner = "@shell"
-
-[tasks.gen_dart_event.windows]
-script = [
-    """
-    flowy_tool=set ${CARGO_MAKE_WORKSPACE_WORKING_DIRECTORY}/scripts/flowy-tool/Cargo.toml
-    flutter_lib=set ${CARGO_MAKE_WORKSPACE_WORKING_DIRECTORY}/app_flowy/packages
-
-    rust_source=set ${CARGO_MAKE_WORKSPACE_WORKING_DIRECTORY}/rust-lib/
-    output=set ${flutter_lib}/flowy_sdk/lib/dispatch/dart_event.dart
-
-    exec cmd.exe /c cargo run \
-     --manifest-path ${flowy_tool} dart-event \
-     --rust_source=${rust_source} \
-     --output=${output}
-    """,
-]
-script_runner = "@duckscript"

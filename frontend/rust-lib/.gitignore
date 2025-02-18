@@ -13,3 +13,9 @@ bin/
 **/src/protobuf
 **/resources/proto
 .idea/
+AppFlowy-Collab/
+.env
+.env.**
+**/unit_test**
+jniLibs/
+**/pkg/

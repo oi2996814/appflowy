@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 YELLOW="\e[93m"
 GREEN="\e[32m"
@@ -17,8 +17,7 @@ printError() {
    printf "${RED}AppFlowy : $1${ENDCOLOR}\n"
 }
 
-
-# Install Rust 
+# Install Rust
 printMessage "The Rust programming language is required to compile AppFlowy."
 printMessage "We can install it now if you don't already have it on your system."
 
@@ -28,7 +27,7 @@ if [[ "${installrust:-N}" == [Yy] ]]; then
    printMessage "Installing Rust."
    brew install rustup-init
    rustup-init -y --default-toolchain=stable
-  
+
    source "$HOME/.cargo/env"
 else
    printMessage "Skipping Rust installation."
@@ -36,11 +35,30 @@ fi
 
 # Install sqllite
 printMessage "Installing sqlLite3."
-brew install sqlite3 
+brew install sqlite3
 
-# Enable the flutter stable channel
 printMessage "Setting up Flutter"
-flutter channel stable
+
+# Get the current Flutter version
+FLUTTER_VERSION=$(flutter --version | grep -oE 'Flutter [^ ]+' | grep -oE '[^ ]+$')
+# Check if the current version is 3.27.4
+if [ "$FLUTTER_VERSION" = "3.27.4" ]; then
+   echo "Flutter version is already 3.27.4"
+else
+   # Get the path to the Flutter SDK
+   FLUTTER_PATH=$(which flutter)
+   FLUTTER_PATH=${FLUTTER_PATH%/bin/flutter}
+
+   current_dir=$(pwd)
+
+   cd $FLUTTER_PATH
+   # Use git to checkout version 3.27.4 of Flutter
+   git checkout 3.27.4
+   # Get back to current working directory
+   cd "$current_dir"
+
+   echo "Switched to Flutter version 3.27.4"
+fi
 
 # Enable linux desktop
 flutter config --enable-macos-desktop
@@ -52,11 +70,11 @@ flutter doctor
 printMessage "Setting up githooks."
 git config core.hooksPath .githooks
 
-# Install go-gitlint 
+# Install go-gitlint
 printMessage "Installing go-gitlint."
 GOLINT_FILENAME="go-gitlint_1.1.0_osx_x86_64.tar.gz"
 curl -L https://github.com/llorllale/go-gitlint/releases/download/1.1.0/${GOLINT_FILENAME} --output ${GOLINT_FILENAME}
-tar -zxv --directory .githooks/. -f ${GOLINT_FILENAME} gitlint 
+tar -zxv --directory .githooks/. -f ${GOLINT_FILENAME} gitlint
 rm ${GOLINT_FILENAME}
 
 # Change to the frontend directory
@@ -68,8 +86,8 @@ cargo install --force cargo-make
 
 # Install duckscript
 printMessage "Installing duckscript."
-cargo install --force duckscript_cli
+cargo install --force --locked duckscript_cli
 
 # Check prerequisites
 printMessage "Checking prerequisites."
-cargo make flowy_dev
+cargo make appflowy-flutter-deps-tools

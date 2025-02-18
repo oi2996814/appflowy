@@ -1,12 +1,14 @@
-pub mod app;
+pub mod icon;
+mod import;
 mod parser;
+pub mod publish;
 pub mod trash;
 pub mod view;
-mod view_info;
 pub mod workspace;
 
-pub use app::*;
+pub use icon::*;
+pub use import::*;
+pub use publish::*;
 pub use trash::*;
 pub use view::*;
-pub use view_info::*;
 pub use workspace::*;
